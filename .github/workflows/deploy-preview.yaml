@@ -1,6 +1,6 @@
 name: Deploy preview environment on Koyeb
 on:
-pull_request:
+ pull_request:
   branches:
     - main
 jobs:
