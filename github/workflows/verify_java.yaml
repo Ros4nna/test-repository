@@ -1,20 +1,18 @@
-name: Run CI on GitHub actions runner
-
-on: [push, workflow_dispatch]
-
+name: Checkout repository and verify Java installation on GitHub actions runner # nazwa workflow
+on: [push, workflow_dispatch] # eventy, na które reaguje workflow
 jobs:
-  ci:
-    name: CI
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the latest Git commit
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Setup JDK
-        uses: actions/setup-java@v2
-        with:
-          java-version: '17'
-          distribution: 'adopt'
-      - name: Run CI process
-        run: ./gradlew clean test
+ checkout_and_verify_java: # nazwa joba
+  name: Test workflow # nazwa akcji
+  runs-on: ubuntu-latest
+  steps: # definicje krokówhddhnn
+    - name: Checkout the latest Git commit
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Setup JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '17'
+        distribution: 'adopt'
+    - name: Verify Java installation
+      run: java -version
