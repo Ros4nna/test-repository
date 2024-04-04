@@ -4,7 +4,7 @@ jobs:
  checkout_and_verify_java: # nazwa joba
   name: Test workflow # nazwa akcji
   runs-on: ubuntu-latest
-  steps: # definicje kroków
+  steps: # definicje krokówhddh
     - name: Checkout the latest Git commit
       uses: actions/checkout@v2
       with:
